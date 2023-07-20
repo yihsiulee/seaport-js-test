@@ -3229,7 +3229,7 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@opensea/seaport-js@^2.0.5":
+"@opensea/seaport-js@^2.0.0", "@opensea/seaport-js@^2.0.5":
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/@opensea/seaport-js/-/seaport-js-2.0.5.tgz#aa029e9aa29ea30377a82a9a254b9fdf1a854803"
   integrity sha512-Ay0fMNj8p94jtl14bDlu0VKfSV47BYTy21z/wIl8NdsdTSxFXyomAGxTYOedXqknIR7FeNL+N9JuJDkLzJRU3g==
@@ -9834,6 +9834,14 @@ open@^8.0.9, open@^8.4.0:
     define-lazy-prop "^2.0.0"
     is-docker "^2.1.1"
     is-wsl "^2.2.0"
+
+opensea-js@^6.1.4:
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/opensea-js/-/opensea-js-6.1.4.tgz#86e15e46a458db0d62b7f04e8ab2b2f837ffd67b"
+  integrity sha512-MlKo0QdBVltgjDD3lB9++IQ69xMK1G2ZBk8J12EW1Z4XTiIFymevH5LDzZsFvkqG0Wsjd5Ve472luVwJXuoEFA==
+  dependencies:
+    "@opensea/seaport-js" "^2.0.0"
+    ethers "^5.7.2"
 
 optionator@^0.9.3:
   version "0.9.3"

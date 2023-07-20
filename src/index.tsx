@@ -4,8 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Test from "./pages/testPage";
-import MarketPage from "./pages/marketPage";
+import Seaport from "./pages/seaportPage";
+import Opensea from "./pages/openseaPage";
 import { ChakraProvider } from "@chakra-ui/react";
 
 import "@rainbow-me/rainbowkit/styles.css";
@@ -49,8 +49,8 @@ root.render(
           <Router>
             <Routes>
               <Route path="/" Component={App} />
-              <Route path="/test" Component={Test} />
-              <Route path="/market" Component={MarketPage} />
+              <Route path="/seaport" Component={Seaport} />
+              <Route path="/opensea" Component={Opensea} />
             </Routes>
           </Router>
         </RainbowKitProvider>

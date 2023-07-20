@@ -15,10 +15,12 @@ import {
   FormControl,
   FormLabel,
   Input,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import { OrderWithCounter } from "@opensea/seaport-js/lib/types";
 import FulfillButton from "../components/fulfillButton";
 import { useAccount } from "wagmi";
+import ProductCard from "../components/productCard";
 
 window.Buffer = window.Buffer || Buffer;
 
@@ -88,7 +90,7 @@ function Test() {
   return (
     <div className="App">
       <header>
-        <p>test page</p>
+        <p>Seaport.js test page</p>
 
         <Navigation />
         <ConnectButton />
@@ -110,9 +112,30 @@ function Test() {
       <Button onClick={() => prepareOrder()}>prepare order</Button>
       {/* <Button onClick={() => callTransaction()}>transaction</Button> */}
       <Button onClick={() => console.log("aa:", currentOrderList)}>log</Button>
-      <FulfillButton currentOrder={currentOrder} fulfiller={offerer} />
-      <Text>{JSON.stringify(currentOrderList)}</Text>
+      {/* <FulfillButton currentOrder={currentOrder} fulfiller={offerer} /> */}
+      {/* <Text>{JSON.stringify(currentOrderList)}</Text> */}
       {/* <Button onClick={() => transaction()}>fulfill</Button> */}
+
+      <div>
+        <SimpleGrid
+          spacing={4}
+          templateColumns="repeat(auto-fill, minmax(200px, 1fr))"
+        >
+          {orderList.map((order) => (
+            <ProductCard
+              name={order.parameters.offer[0].token}
+              id={order.parameters.offer[0].identifierOrCriteria}
+              price={Number(
+                ethers.utils.formatEther(
+                  order.parameters.consideration[0].endAmount
+                )
+              )}
+              order={order}
+              fulfiller={address as string}
+            />
+          ))}
+        </SimpleGrid>
+      </div>
     </div>
   );
 }
