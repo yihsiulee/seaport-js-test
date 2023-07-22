@@ -17,7 +17,7 @@ If you want to use testnet, no need to set apiKey.
 And they will show on Opensea test market.
 
 ## setup
-```javescript
+```typescript
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 
 const openseaSDK = new OpenSeaSDK(provider, {
@@ -27,7 +27,7 @@ const openseaSDK = new OpenSeaSDK(provider, {
 });
 ```
 ## getOrders
-```javescript
+```typescript
 const { orders } = await openseaSDK.api.getOrders({
       assetContractAddress: ERC721TOKEN,
       tokenId,
@@ -36,7 +36,7 @@ const { orders } = await openseaSDK.api.getOrders({
 ```
 
 ## createSellOrder
-```javescript
+```typescript
 const listing = await openseaSDK.createSellOrder({
       asset: {
         tokenId: inputId,
@@ -51,7 +51,7 @@ const listing = await openseaSDK.createSellOrder({
     console.log("listing:", listing);
 ```
 
-```javescript
+```typescript
 const cancel = await openseaSDK.cancelOrder({
       order: order,
       accountAddress: accountAddress as string,
@@ -67,14 +67,14 @@ yarn add @opensea/seaport
 Interact with [seaport protocol contract](https://github.com/ProjectOpenSea/seaport), function `createOrder` will not directly change the status of the item on Opensea. We need to store the order data in our database, and then use the function `fulfillOrder` to change the status of the item on blockchain.That means we will no need to pay the royalty fee and service fee to Opensea.
 
 ## setup
-```javescript
+```typescript
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 
 const seaport = new Seaport(provider);
 ```
 
 ## createOrder
-```javescript
+```typescript
 const { executeAllActions } = await seaport.createOrder(
       {
         offer: [
@@ -98,7 +98,7 @@ const { executeAllActions } = await seaport.createOrder(
 ```
 
 ## fulfillOrder
-```javescript
+```typescript
 const { executeAllActions: executeAllFulfillActions } =
       await seaport.fulfillOrder({
         order: currentOrder as OrderWithCounter,
