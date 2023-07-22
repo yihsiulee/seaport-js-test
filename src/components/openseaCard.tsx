@@ -7,21 +7,21 @@ import {
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
-import FulfillButton from "./fulfillButton";
+import CancelButton from "./cancelButton";
 
 type GameCardProps = {
   name: string;
   price: number;
   id: string;
   order: any;
-  fulfiller: string;
+  accountAddress: string;
   // live: boolean,
   // route: string,
   // image: any,
   // chainId: number
 };
 
-export default function ProductCard(props: GameCardProps) {
+export default function OpenseaCard(props: GameCardProps) {
   return (
     <Card>
       <CardHeader>
@@ -33,7 +33,10 @@ export default function ProductCard(props: GameCardProps) {
         <Text>NFT price: {props.price}</Text>
       </CardBody>
       <CardFooter>
-        <FulfillButton currentOrder={props.order} fulfiller={props.fulfiller} />
+        <CancelButton
+          order={props.order}
+          accountAddress={props.accountAddress}
+        />
       </CardFooter>
     </Card>
   );
